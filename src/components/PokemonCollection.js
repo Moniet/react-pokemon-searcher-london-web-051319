@@ -9,7 +9,7 @@ class PokemonCollection extends React.Component {
     return (
       <Card.Group itemsPerRow={6}>
         { pokemon
-        ? pokemon.map(charData => <PokemonCard pokemon={charData} />)
+        ? pokemon.map(charData => <PokemonCard key={Math.random() / 10}pokemon={charData} />)
         : '' }
       </Card.Group>
     )

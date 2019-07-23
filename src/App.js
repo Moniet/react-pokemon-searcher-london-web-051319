@@ -6,7 +6,7 @@ import api from './adapters/API'
 class App extends React.Component {
 
   state = {
-    allPokemon: null,
+    allPokemon: [],
     searchTerm: '',
   }
 
@@ -31,11 +31,7 @@ class App extends React.Component {
 
   render() {
     const  { allPokemon, searchTerm } = this.state;
-    const pokemon = (
-      searchTerm !== ''
-      ? allPokemon.filter(pokemon => pokemon.name.includes(searchTerm))
-      : allPokemon
-    )
+    const pokemon = allPokemon.filter(pokemon=> pokemon.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
 
     return (
       <div className="App">
